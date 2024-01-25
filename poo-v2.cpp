@@ -20,6 +20,10 @@ public:
 private:
     int gold;
 
+
+protected:
+
+
 };
 
 class Archer : public Perso
