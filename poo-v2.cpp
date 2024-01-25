@@ -1,34 +1,44 @@
-
+#include <fstream>
 #include <iostream>
+#include <string>
 
 using namespace std;    
 
 
 int main()
 {
-    int demo[] = { 10, 20, 30, 40, 50 };
-    int nb{};
 
-    cout << "Saisir un nombre : " << endl;
-    cin >> nb;
+    //ofstream outFile{ "demo.txt" };
 
-    if (nb < 5)
+    //if (!outFile)
+    //{
+    //    cerr << "impossible d'écrire dans le fichier";
+    //    return -1;
+    //}
+
+    //outFile << "Ma ligne 1 \n";
+    //outFile << "Ma ligne 2 \n";
+    //outFile << "Ma ligne 3 \n";
+
+    //cout << "Fin du programme" << endl;
+
+    ifstream inFile{ "demo.txt" };
+
+    if (!inFile)
     {
-        cout << "demo[nb] = " << demo[nb] << endl;
+        cerr << "impossible d'écrire dans le fichier";
+        return -1;
     }
-    else
+
+    while (inFile)
     {
-        try
-        {
-            throw - 1;
-        }
-        catch (int error)
-        {
-            cout << "Probleme. Code erreur : " << error << endl;
-        }
+        string txt;
+        getline(inFile, txt);
+        cout << txt << endl;
     }
 
     cout << "Fin du programme" << endl;
+
 
     return 0;
 }
